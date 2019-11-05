@@ -1,3 +1,4 @@
+package com.synechron.day2;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -9,18 +10,17 @@ public class ExecutorsExample {
         //Executor service methods
         //es.awaitTermination(1000,Seconds);
         //es.execute(command);
-        es.isTerminated();
-        es.isTerminated();
+       System.out.println(es.isTerminated());
       //  es.invokeAll(tasks);
        // es.invokeAny(tasks);
         ExecutorService executorService = Executors.newFixedThreadPool(2);
-       Runnable task1 = () -> {
-            System.out.println("Executing Task1 inside : " + Thread.currentThread().getName());
+        Runnable task1 = () -> {
+    	   			System.out.println("Executing Task1 inside : " + Thread.currentThread().getName());
             try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException ex) {
-                throw new IllegalStateException(ex);
-            }
+            		TimeUnit.SECONDS.sleep(2);
+            	} catch (InterruptedException ex) {
+            		throw new IllegalStateException(ex);
+            	}
         };
        Runnable task2 = () -> {
             System.out.println("Executing Task2 inside : " + Thread.currentThread().getName());

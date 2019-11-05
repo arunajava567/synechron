@@ -1,3 +1,4 @@
+package com.synechron.day2;
 import java.util.concurrent.*;
 public class FutureAndCallableExample {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -7,7 +8,7 @@ public class FutureAndCallableExample {
             Thread.sleep(2000);
             return "Hello from Callable";
         };
-	System.out.println("Submitting Callable");	
+        System.out.println("Submitting Callable");	
         Future<String> future = executorService.submit(callable);
         System.out.println("Do something else while callable is getting executed");
         System.out.println("Retrieve the result of the future");

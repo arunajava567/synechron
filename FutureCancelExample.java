@@ -1,3 +1,4 @@
+package com.synechron.day2;
 import java.util.concurrent.*;
 
 
@@ -10,7 +11,6 @@ public class FutureCancelExample {
             Thread.sleep(2000);
             return "Hello from Callable";
         };
-
         long startTime = System.nanoTime();
         Future<String> future = executorService.submit(callable);
 
