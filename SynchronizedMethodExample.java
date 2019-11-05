@@ -7,8 +7,8 @@ class SynchronizedCounter {
     private int count = 0;
 
     // Synchronized Method
-    public synchronized void increment() {
-	System.out.println(Thread.currentThread().getName());
+    public void increment() {
+	System.out.println(Thread.currentThread().getName()+"   Count:"+count);
         count = count + 1;
     }
 
@@ -19,6 +19,9 @@ class SynchronizedCounter {
 
 public class SynchronizedMethodExample {
     public static void main(String[] args) throws InterruptedException {
+    	
+    	
+    	
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         SynchronizedCounter synchronizedCounter = new SynchronizedCounter();
@@ -27,9 +30,11 @@ public class SynchronizedMethodExample {
             executorService.submit(() -> synchronizedCounter.increment());
         }
 
-        executorService.shutdown();
+       // executorService.shutdown();
         executorService.awaitTermination(60, TimeUnit.SECONDS);
 
         System.out.println("Final count is : " + synchronizedCounter.getCount());
+        
+       
     }
 }
